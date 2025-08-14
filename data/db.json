@@ -1,0 +1,72 @@
+{
+  "blogs": [
+    {
+      "id": "3",
+      "title": "Sinus",
+      "description": "Sinus problems are a common reason people visit their doctor, particularly during cold and allergy seasons. The sinuses are not just empty spaces in the skull — they are an integral part of the respiratory system, playing roles in air filtration, voice resonance, and overall nasal health. Understanding their anatomy, function, and common disorders can help in early identification and effective treatment.",
+      "Author": "Narasimha"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "Name": "Jithendra",
+      "Age": 22,
+      "IsStudent": false
+    },
+    {
+      "id": "2",
+      "Name": "Jithu",
+      "Age": 21,
+      "IsStudent": true
+    },
+    {
+      "id": "3",
+      "Name": "Aryan Pandey",
+      "Age": 23,
+      "IsStudent": false
+    },
+    {
+      "id": "4",
+      "Name": "Rahul",
+      "Age": 29,
+      "IsStudent": true
+    },
+    {
+      "id": "5",
+      "Name": "Praveen",
+      "Age": 26,
+      "IsStudent": false
+    },
+    {
+      "id": "6",
+      "Name": "Likith",
+      "Age": 27,
+      "IsStudent": true
+    },
+    {
+      "id": "7",
+      "Name": "Venkatesh",
+      "Age": 25,
+      "IsStudent": false
+    },
+    {
+      "id": "8",
+      "Name": "Bharath",
+      "Age": 30,
+      "IsStudent": true
+    },
+    {
+      "id": "9",
+      "Name": "Hemanth",
+      "Age": 21,
+      "IsStudent": false
+    },
+    {
+      "id": "10",
+      "Name": "Sanju",
+      "Age": 24,
+      "IsStudent": true
+    }
+  ]
+}
