@@ -67,6 +67,7 @@ import { AuthContext1 } from "./hooks/Context/AuthContext1";
 import EffectHook from "./hooks/useEffect/EffectHook";
 import EffectHook1 from "./hooks/useEffect/EffectHook1";
 import EffectHook2 from "./hooks/useEffect/EffectHook2";
+import BasicExpressions from "./expressions/BasicExpressions";
 
 // const Card = (props) => {
 //   const { title } = props;
@@ -151,7 +152,8 @@ const App = () => {
                   {/* <EffectHook /> */}
                   {/* 06/09/2025 */}
                   {/* <EffectHook1 /> */}
-                  <EffectHook2 />
+                  {/* <EffectHook2 /> */}
+                  <BasicExpressions />
                 </div>
               </ValueContext.Provider>
             </ThemeContext1.Provider>

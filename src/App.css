@@ -1,0 +1,57 @@
+.temp {
+  color: crimson;
+  font-size: 1em;
+}
+
+nav {
+  margin: 10px;
+}
+
+h1{
+  text-align: center;
+}
+
+p {
+  margin: 0 10px;
+}
+
+.Greet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.counterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.counterContainer button {
+  margin-bottom: 10px;
+}
+
+.mouseClick{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
