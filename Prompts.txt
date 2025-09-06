@@ -1,0 +1,12 @@
+hi, 
+I have an suggestion for you, 
+kindly explain me in great detail, 
+what was the consequences which lead to the discovery of this feature/hook,
+explain about the feature,
+what problem did it solve,
+give me syntax for the feature/component/hook.
+code examples,
+Use case scenarios,
+in which scenario's i should not be using this component 
+
+can you highlight the changes that you have made in the code now
