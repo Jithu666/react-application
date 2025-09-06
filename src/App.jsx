@@ -60,14 +60,19 @@ import {
 } from "./hooks/Context/CreateContext";
 // import LoginPage from "./hooks/Context/LoginPage";
 // import PrivatePage from "./hooks/Context/PrivatePage";
-import { AuthContext1 } from "./hooks/Context/AuthContext1";
+// import { AuthContext1 } from "./hooks/Context/AuthContext1";
 // import StateManagement1 from "./hooks/useState/StateManagement1";
 
 // useEffect Hook
-import EffectHook from "./hooks/useEffect/EffectHook";
-import EffectHook1 from "./hooks/useEffect/EffectHook1";
-import EffectHook2 from "./hooks/useEffect/EffectHook2";
-import BasicExpressions from "./expressions/BasicExpressions";
+// import EffectHook from "./hooks/useEffect/EffectHook";
+// import EffectHook1 from "./hooks/useEffect/EffectHook1";
+// import EffectHook2 from "./hooks/useEffect/EffectHook2";
+
+// Expressions in React
+// import BasicExpressions from "./expressions/BasicExpressions";
+// import ConditionalRendering from "./expressions/ConditionalRendering";
+import Parent from "./expressions/Parent";
+import Child from "./expressions/Child";
 
 // const Card = (props) => {
 //   const { title } = props;
@@ -78,13 +83,15 @@ const App = () => {
   // const [hasLiked, setHasLiked] = useState(false);
   // const user = { name: "Jithu", role: "Developer" };
 
+  const child = { name: "Jithu", age: 23, role: "Software Engineer" };
+
   const [theme, setTheme] = useState("light");
   const [count, setCount] = useState(0);
   const [text, setText] = useState("null");
   const [name, setName] = useState("Jithu");
   const num = 6;
 
-  const { isAuthenticated } = useContext(AuthContext1);
+  // const { isAuthenticated } = useContext(AuthContext1);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
@@ -153,7 +160,14 @@ const App = () => {
                   {/* 06/09/2025 */}
                   {/* <EffectHook1 /> */}
                   {/* <EffectHook2 /> */}
-                  <BasicExpressions />
+
+                  {/* COnditional Rendering */}
+
+                  {/* <BasicExpressions /> */}
+                  {/* <ConditionalRendering isLoggedIn={true} /> */}
+                  {/* <Parent name="Jithu" /> */}
+                  <Parent {...child} />
+                  <Child child={child} />
                 </div>
               </ValueContext.Provider>
             </ThemeContext1.Provider>

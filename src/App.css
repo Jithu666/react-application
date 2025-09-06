@@ -1,4 +1,4 @@
-.temp {
+/* .temp {
   color: crimson;
   font-size: 1em;
 }
@@ -48,10 +48,9 @@ p {
 
 .form {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
   margin-bottom: 12px;
 }
-
+ */
