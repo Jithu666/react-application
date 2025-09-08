@@ -58,6 +58,12 @@ import {
   themeConfig,
   ValueContext,
 } from "./hooks/Context/CreateContext";
+import ObjectList from "./ReactCoreComponents/UsersList";
+import KeyBoardEvent from "./ReactCoreComponents/KeyBoardEvent";
+import KeyListener from "./ReactCoreComponents/KeyListener";
+import KeyboardListener from "./ReactCoreComponents/KeyboardListener";
+import API from "./API/API";
+
 // import LoginPage from "./hooks/Context/LoginPage";
 // import PrivatePage from "./hooks/Context/PrivatePage";
 // import { AuthContext1 } from "./hooks/Context/AuthContext1";
@@ -71,8 +77,18 @@ import {
 // Expressions in React
 // import BasicExpressions from "./expressions/BasicExpressions";
 // import ConditionalRendering from "./expressions/ConditionalRendering";
-import Parent from "./expressions/Parent";
-import Child from "./expressions/Child";
+// import Parent from "./expressions/Parent";
+// import Child from "./expressions/Child";
+// import Function from "./expressions/Function";
+// import FunctionCall from "./expressions/FunctionCall";
+// import FunctionCallUserInput from "./expressions/FunctionCallUserInput";
+
+// Map
+// import FruitList from "./ReactCoreComponents/FruitList";
+// import UsersList from "./ReactCoreComponents/UsersList";
+// import UserGrid from "./ReactCoreComponents/UserGrid";
+// import TaskList from "./ReactCoreComponents/TaskList";
+// import NestedLists from "./ReactCoreComponents/NestedLists";
 
 // const Card = (props) => {
 //   const { title } = props;
@@ -90,6 +106,7 @@ const App = () => {
   const [text, setText] = useState("null");
   const [name, setName] = useState("Jithu");
   const num = 6;
+  const [open, setOpen] = useState(true);
 
   // const { isAuthenticated } = useContext(AuthContext1);
 
@@ -160,14 +177,34 @@ const App = () => {
                   {/* 06/09/2025 */}
                   {/* <EffectHook1 /> */}
                   {/* <EffectHook2 /> */}
-
-                  {/* COnditional Rendering */}
-
+                  {/* Conditional Rendering */}
                   {/* <BasicExpressions /> */}
                   {/* <ConditionalRendering isLoggedIn={true} /> */}
                   {/* <Parent name="Jithu" /> */}
-                  <Parent {...child} />
-                  <Child child={child} />
+                  {/* <Parent {...child} /> */}
+                  {/* <Parent child={child} /> */}
+                  {/* <Child {...child} /> */}
+                  {/* <Child /> */}
+                  {/* <Child {...child} />
+                  <Child name="Suman" age={27} /> */}
+                  {/* <Function /> */}
+                  {/* <FunctionCall /> */}
+                  {/* <FunctionCallUserInput /> */}
+                  {/* 08/09/2025 */}
+                  {/* <FruitList /> */}
+                  {/* <UsersList /> */}
+                  {/* <UserGrid /> */}
+                  {/* <TaskList title="Daily Tasks : " /> */}
+                  {/* <NestedLists /> */}
+                  {/* <KeyBoardEvent /> */}
+                  {/* {open && <KeyListener onClose={() => setOpen(false)} />}]
+                  <button className="" onClick={() => setOpen(true)}>
+                    Open modal
+                  </button> */}
+                  {/* <KeyboardListener /> */}
+
+                  {/* React Workshop by Roadside Coder */}
+                  <API />
                 </div>
               </ValueContext.Provider>
             </ThemeContext1.Provider>
