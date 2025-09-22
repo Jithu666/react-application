@@ -58,11 +58,6 @@ import {
   themeConfig,
   ValueContext,
 } from "./hooks/Context/CreateContext";
-import ObjectList from "./ReactCoreComponents/UsersList";
-import KeyBoardEvent from "./ReactCoreComponents/KeyBoardEvent";
-import KeyListener from "./ReactCoreComponents/KeyListener";
-import KeyboardListener from "./ReactCoreComponents/KeyboardListener";
-import API from "./API/API";
 
 // import LoginPage from "./hooks/Context/LoginPage";
 // import PrivatePage from "./hooks/Context/PrivatePage";
@@ -89,6 +84,15 @@ import API from "./API/API";
 // import UserGrid from "./ReactCoreComponents/UserGrid";
 // import TaskList from "./ReactCoreComponents/TaskList";
 // import NestedLists from "./ReactCoreComponents/NestedLists";
+
+// React's Core Components
+// import ObjectList from "./ReactCoreComponents/UsersList";
+// import KeyBoardEvent from "./ReactCoreComponents/KeyBoardEvent";
+// import KeyListener from "./ReactCoreComponents/KeyListener";
+// import KeyboardListener from "./ReactCoreComponents/KeyboardListener";
+
+// API calls
+// import API from "./API/API";
 
 // const Card = (props) => {
 //   const { title } = props;
@@ -204,7 +208,8 @@ const App = () => {
                   {/* <KeyboardListener /> */}
 
                   {/* React Workshop by Roadside Coder */}
-                  <API />
+                  {/* <API /> */}
+                  <CountriesSpace />
                 </div>
               </ValueContext.Provider>
             </ThemeContext1.Provider>
