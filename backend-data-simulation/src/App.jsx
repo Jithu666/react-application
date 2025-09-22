@@ -1,9 +1,12 @@
 import { useState } from "react";
-import FetchUsers from "./components/FetchUsers";
-import IncreaseCounter from "./components/IncreaseCounter";
+// import FetchUsers from "./components/FetchUsers";
+// import IncreaseCounter from "./components/IncreaseCounter";
 import useWindowWidth from "./hooks/useWindowWidth";
-import Weather from "./components/Weather";
-import Users from "./components/Users";
+// import Weather from "./components/Weather";
+// import Users from "./components/Users";
+// import Posts from "./components/Posts";
+// import Comments from "./components/Comments";
+import Albums from "./components/Albums";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -89,8 +92,16 @@ const App = () => {
         Window Width: {width}
       </p> */}
       {/* <IncreaseCounter /> */}
+
+      {/* 19/09/2025 -> Fetching data from json api and rendering it to browser. */}
+
       {/* <Weather /> */}
-      <Users />
+      {/* <Users /> */}
+
+      {/* 22/09/2025 -> Fetching data from json api and rendering it to browser. */}
+      {/* <Posts /> */}
+      {/* <Comments /> */}
+      <Albums />
     </div>
   );
 };
