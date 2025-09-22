@@ -1,6 +1,9 @@
 import { useState } from "react";
 import FetchUsers from "./components/FetchUsers";
-import IncreaseCounter from "./hooks/IncreaseCounter";
+import IncreaseCounter from "./components/IncreaseCounter";
+import useWindowWidth from "./hooks/useWindowWidth";
+import Weather from "./components/Weather";
+import Users from "./components/Users";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -47,6 +50,8 @@ const App = () => {
   //     .then((data) => setData(res));
   // }, []);
 
+  const width = useWindowWidth();
+
   return (
     <div>
       {/* <h1 className="ml-6 font-black text-red-800 text-2xl underline hover:text-orange-600 pb-2 mt-6">
@@ -80,9 +85,12 @@ const App = () => {
       {/* <FetchUsers /> */}
 
       {/* <p className="text-3xl text-orange-300 underline">
-        Window Width: {count}
+        {" "}
+        Window Width: {width}
       </p> */}
-      <IncreaseCounter />
+      {/* <IncreaseCounter /> */}
+      {/* <Weather /> */}
+      <Users />
     </div>
   );
 };
