@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const useFetch2 = (url) => {
+const useFetch3 = (url) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let timeoutId = setTimeout(() => {
@@ -11,10 +11,11 @@ const useFetch2 = (url) => {
         try {
           const res = await fetch(url);
           if (!res.ok) {
-            throw new Error(`Error ${res.status}: ${res.statusText}`);
+            throw new Error(`Error: ${res.status}: ${res.statusText}`);
           }
           const data = await res.json();
-          console.log(data);
+          const stringData = JSON.stringify(data);
+          console.log(stringData);
           setData(data);
         } catch (err) {
           setError(err);
@@ -24,7 +25,7 @@ const useFetch2 = (url) => {
         }
       };
       fetchDataFromAPI();
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timeoutId);
   }, [url]);
@@ -32,4 +33,4 @@ const useFetch2 = (url) => {
   return { data, loading, error };
 };
 
-export default useFetch2;
+export default useFetch3;

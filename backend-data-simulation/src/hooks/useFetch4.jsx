@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const useFetch2 = (url) => {
+const useFetch4 = (url, count = 8) => {
+  // Manage State's
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // useEffect Hook.
   useEffect(() => {
     let timeoutId = setTimeout(() => {
       const fetchDataFromAPI = async () => {
         try {
-          const res = await fetch(url);
-          if (!res.ok) {
-            throw new Error(`Error ${res.status}: ${res.statusText}`);
-          }
-          const data = await res.json();
+          const requests = Array.from({ length: count }, () => fetch(url));
+          const res = await Promise.all(requests);
+          res.forEach((r) => {
+            if (!r.ok) {
+              throw new Error(`Error : ${r.status}`);
+            }
+          });
+          const data = await Promise.all(res.map((r) => r.json()));
           console.log(data);
           setData(data);
         } catch (err) {
@@ -24,12 +29,12 @@ const useFetch2 = (url) => {
         }
       };
       fetchDataFromAPI();
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [url]);
+  }, [url, count]);
 
   return { data, loading, error };
 };
 
-export default useFetch2;
+export default useFetch4;

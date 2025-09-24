@@ -1,60 +1,18 @@
 import { useState } from "react";
 // import FetchUsers from "./components/FetchUsers";
 // import IncreaseCounter from "./components/IncreaseCounter";
-import useWindowWidth from "./hooks/useWindowWidth";
-// import Weather from "./components/Weather";
-// import Users from "./components/Users";
-// import Posts from "./components/Posts";
-// import Comments from "./components/Comments";
+// import useWindowWidth from "./hooks/useWindowWidth";
+import Weather from "./components/Weather";
+import Users from "./components/Users";
+import Posts from "./components/Posts";
+import Comments from "./components/Comments";
 import Albums from "./components/Albums";
+import CatFact from "./components/CatFact";
+import DogImage from "./components/DogImage";
+import AdviceSlip from "./components/AdviceSlip";
+import JokeAPI from "./components/JokeAPI";
 
 const App = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  // useEffect(() => {
-  //   fetch("/db.json")
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error(`Error ${response.status}: ${response.statusText}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((json) => {
-  //       console.log("Fetched Data: ", json);
-  //       setData(json);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       setError(error.message);
-  //       setLoading(false);
-  //     });
-  // }, []);
-
-  // if (loading) {
-  //   <h2>Loading...</h2>;
-  // }
-
-  // if (error) {
-  //   <h2>Error: {error}</h2>;
-  // }
-
-  // const filterUsers1 = data.filter((user) =>
-  //   user.title.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-
-  // const filterUsers = data.filter((user) => user.id < 25);
-
-  // useEffect(() => {
-  //   fetch("/db.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setData(res));
-  // }, []);
-
-  const width = useWindowWidth();
-
   return (
     <div>
       {/* <h1 className="ml-6 font-black text-red-800 text-2xl underline hover:text-orange-600 pb-2 mt-6">
@@ -95,13 +53,21 @@ const App = () => {
 
       {/* 19/09/2025 -> Fetching data from json api and rendering it to browser. */}
 
-      {/* <Weather /> */}
+      <Weather />
       {/* <Users /> */}
 
       {/* 22/09/2025 -> Fetching data from json api and rendering it to browser. */}
       {/* <Posts /> */}
       {/* <Comments /> */}
-      <Albums />
+      {/* <Albums /> */}
+      {/* <CatFact /> */}
+
+      {/* 23/09/2025 */}
+      {/* <DogImage /> */}
+
+      {/* 24/09/2025 */}
+      {/* <AdviceSlip /> */}
+      {/* <JokeAPI /> */}
     </div>
   );
 };
