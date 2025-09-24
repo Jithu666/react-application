@@ -52,12 +52,11 @@ const App = () => {
       {/* <IncreaseCounter /> */}
 
       {/* 19/09/2025 -> Fetching data from json api and rendering it to browser. */}
-
-      <Weather />
+      {/* <Weather /> */}
       {/* <Users /> */}
 
       {/* 22/09/2025 -> Fetching data from json api and rendering it to browser. */}
-      {/* <Posts /> */}
+      <Posts />
       {/* <Comments /> */}
       {/* <Albums /> */}
       {/* <CatFact /> */}

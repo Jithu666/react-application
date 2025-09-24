@@ -18,13 +18,12 @@ const Users = () => {
     );
   });
 
-  if (loading) return <p>Loading...</p>;
-
-  if (error) return <p>Error: {error}</p>;
+  if (error)
+    return <p className="flex justify-center items-center">Error: {error}</p>;
 
   return (
     <div>
-      <p className="mt-10 p-2 pt-10 pl-10 inline text-2xl text-black underline hover:text-orange-400 font-medium">
+      <p className="flex justify-center items-center p-2 text-2xl text-black underline hover:text-orange-400 font-medium">
         Users
       </p>
       <br />
@@ -35,54 +34,49 @@ const Users = () => {
         onChange={(e) => {
           setSearchTerm(e.target.value);
         }}
-        className=" flex flex-row ml-auto mr-20 border rounded-2xl px-6 pr-20 py-1.5 w-fit"
+        className=" flex flex-row ml-auto mr-20 border rounded-2xl px-6 pr-20 py-1.5 w-fit hover:border-orange-600 focus:border-orange-600"
       />
-      <ul className="flex flex-wrap gap-4 ml-2">
-        {filteredUsers.length > 0 ? (
-          filteredUsers.map((user) => (
-            <li
-              key={user.id}
-              className="ml-10 mt-8 border border-black p-2 w-80"
-            >
-              <p>ID: {user.id}</p>
-              <p>Name: {user.name}</p>
-              <p>Email: {user.email}</p>
-              <p>Company: {user.company.name}</p>
-              <button
-                className="bg-blue-500 text-white cursor-pointer px-2 py-1 mt-2 rounded"
-                onClick={() => {
-                  setSelectedUser(user);
-                  setShowModal(true);
-                }}
+      {loading ? (
+        <p className="flex justify-center items-centerz">Loading...</p>
+      ) : (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4">
+          {filteredUsers.length > 0 ? (
+            filteredUsers.map((user) => (
+              <li
+                key={user.id}
+                className="border rounded p-4 hover:border-orange-500"
               >
-                View Details
-              </button>
-            </li>
-            //    <li>
-            //     <p>UserName: {user.username}</p>
-            //     <p>Website: {user.website}</p>
-            //     <p>Phone: {user.phone}</p>
-            //     <p>Company: {user.company.name}</p>
-            //     <p>Address: {user.address.street}</p>
-            //   </li>
-            //   <li key={user.id}>
-            //     // <p>{data.name}</p>
-            //     //{" "}
-            //   </li>
-          ))
-        ) : (
-          <p className="flex justify-center items-center">No Users Found...</p>
-        )}
-      </ul>
+                <p>ID: {user.id}</p>
+                <p>Name: {user.name}</p>
+                <p>Email: {user.email}</p>
+                <p>Company: {user.company.name}</p>
+                <button
+                  className="bg-blue-500 text-white px-2 py-1 mt-2 rounded hover:bg-blue-300"
+                  onClick={() => {
+                    setSelectedUser(user);
+                    setShowModal(true);
+                  }}
+                >
+                  View Details
+                </button>
+              </li>
+            ))
+          ) : (
+            <p className="flex justify-center items-center text-4xl">
+              No Users Found...
+            </p>
+          )}
+        </ul>
+      )}
 
       {showModal && selectedUser && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-6 rounded shadow-lg w-96 relative">
             <button
-              className="absolute top-2 right-2 text-red-500"
+              className="absolute top-2 right-2 text-black cursor-pointer text-2xl"
               onClick={() => setShowModal(false)}
             >
-              Close{" "}
+              {"X"}
             </button>
             <h2 className="text-lg font-bold mb-2">
               Name: {selectedUser.name}

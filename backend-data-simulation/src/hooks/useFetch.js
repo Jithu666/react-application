@@ -6,25 +6,28 @@ const useFetch = (url) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const fetchDataFromAPI = async () => {
-      try {
-        const res = await fetch(url);
-        if (!res.ok) {
-          setError(true);
-          throw new Error(`Error ${res.status} : ${res.statusText}`);
+    let timeoutId = setTimeout(() => {
+      const fetchDataFromAPI = async () => {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) {
+            setError(true);
+            throw new Error(`Error ${res.status} : ${res.statusText}`);
+          }
+          const data = await res.json();
+          console.log(data);
+          setData(data);
+          setLoading(false);
+        } catch (error) {
+          console.log("Fetchh error: ", error);
+          setError(error.message || "Something went wrong");
+        } finally {
+          setLoading(false);
         }
-        const data = await res.json();
-        console.log(data);
-        setData(data);
-        setLoading(false);
-      } catch (error) {
-        console.log("Fetchh error: ", error);
-        setError(error.message || "Something went wrong");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDataFromAPI();
+      };
+      fetchDataFromAPI();
+    }, 100);
+    return () => clearTimeout(timeoutId);
   }, []);
   return { data, loading, error };
 };
