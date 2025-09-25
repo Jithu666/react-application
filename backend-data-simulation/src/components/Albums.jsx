@@ -8,9 +8,15 @@ const Albums = () => {
 
   const { data, loading, error } = useFetch2(url);
 
+  const [page, setPage] = useState(1);
+  const albumsPerPage = 20;
+
   if (loading)
     return (
-      <p className="flex justify-center items-center text-6xl cursor-progress pt-20">
+      <p
+        className="flex justify-center items-center text-6xl cursor-progress pt-20
+      "
+      >
         Loading...
       </p>
     );
@@ -18,14 +24,18 @@ const Albums = () => {
   if (error)
     return <p className="flex justify-center items-center">{error.message}</p>;
 
-  const filterAlbums = data.filter((album) => album.id > 23 && album.id < 49);
-
   const filteredAlbums = data.filter((album) => {
     return (
       album.id.toString().includes(searchTerm) ||
       album.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
+
+  const totalPages = Math.ceil(filteredAlbums.length / albumsPerPage);
+
+  const startIndex = (page - 1) * albumsPerPage;
+  const endIndex = startIndex + albumsPerPage;
+  const currentPage = filteredAlbums.slice(startIndex, endIndex);
 
   return (
     <div>
@@ -36,9 +46,12 @@ const Albums = () => {
       {/* Search Input Box */}
       <input
         type="text"
-        className="flex ml-auto mr-10 border rounded-2xl pr-20 px-2 py-1.5"
+        className="flex ml-auto mr-10 border rounded-2xl pr-20 px-6 py-1.5"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+          setPage(1);
+        }}
         placeholder="Enter Id or Title."
       />
 
@@ -68,13 +81,32 @@ const Albums = () => {
         ))} */}
 
         {/* Search Input Field to filter and display only the cards which has matching Id or Matching Title. */}
-        {filteredAlbums.map((album) => (
+        {currentPage.map((album) => (
           <li key={album.id} className="border-2 border-black rounded-lg p-4">
             <h1>Id: {album.id}</h1>
             <h1>Title: {album.title}</h1>
           </li>
         ))}
       </ul>
+
+      <div className="fixed left-6 bottom-6">
+        <button
+          onClick={() => setPage((prev) => prev - 1)}
+          disabled={page <= 1}
+          className="bg-green-300 hover:bg-green-400 rounded-lg px-3 py-2 font-medium"
+        >
+          Prev
+        </button>
+      </div>
+      <div className="fixed right-6 bottom-6">
+        <button
+          onClick={() => setPage((prev) => prev + 1)}
+          disabled={page >= totalPages}
+          className="bg-green-300 hover:bg-green-400 rounded-lg px-3 py-2 font-medium"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

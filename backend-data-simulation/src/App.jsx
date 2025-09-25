@@ -56,7 +56,7 @@ const App = () => {
       {/* <Users /> */}
 
       {/* 22/09/2025 -> Fetching data from json api and rendering it to browser. */}
-      <Posts />
+      {/* <Posts /> */}
       {/* <Comments /> */}
       {/* <Albums /> */}
       {/* <CatFact /> */}
@@ -66,7 +66,7 @@ const App = () => {
 
       {/* 24/09/2025 */}
       {/* <AdviceSlip /> */}
-      {/* <JokeAPI /> */}
+      <JokeAPI />
     </div>
   );
 };

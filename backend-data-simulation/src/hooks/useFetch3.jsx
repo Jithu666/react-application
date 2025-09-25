@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFetch3 = (url) => {
+const useFetch3 = (url, count = 18) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -9,11 +9,14 @@ const useFetch3 = (url) => {
     let timeoutId = setTimeout(() => {
       const fetchDataFromAPI = async () => {
         try {
-          const res = await fetch(url);
-          if (!res.ok) {
-            throw new Error(`Error: ${res.status}: ${res.statusText}`);
-          }
-          const data = await res.json();
+          const requests = Array.from({ length: count }, () => fetch(url));
+          const responses = await Promise.all(requests);
+          responses.forEach((res) => {
+            if (!res.ok) {
+              throw new Error(`Error: ${res.status}: ${res.statusText}`);
+            }
+          });
+          const data = await Promise.all(responses.map((res) => res.json()));
           const stringData = JSON.stringify(data);
           console.log(stringData);
           setData(data);
@@ -28,7 +31,7 @@ const useFetch3 = (url) => {
     }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [url]);
+  }, [url, count]);
 
   return { data, loading, error };
 };
